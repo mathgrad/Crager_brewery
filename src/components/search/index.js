@@ -1,10 +1,14 @@
-import { useEffect, useState } from "react";
-
 const Search = () => {
-  const [phrase, setPhrase] = useState("");
-  useEffect(() => {}, [phrase]);
   const search = (event) => {
-    console.log(event.target.value);
+    let phrase = event.target.value;
+    if (phrase.length <= 2) return;
+    fetch("https://api.openbrewerydb.org/breweries?by_city=" + phrase)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+      });
   };
   return (
     <div className="breweries">
