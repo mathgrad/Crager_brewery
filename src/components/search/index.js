@@ -10,7 +10,7 @@ const Search = () => {
   };
 
   return (
-    <div className="breweries">
+    <div className="breweries top">
       <div className="search">
         <label htmlFor="si">Search For Your Brewery</label>
         <input type="text" id="si" name="si" onChange={search}></input>
