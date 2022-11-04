@@ -1,10 +1,22 @@
-const Map = (props) => {
-  //Will call on google maps api to grab the necessary information when activated
-  //Display a map of the location
-  // {props.street} {props.address_2 + " "}
-  //     {props.address_2 + " "}
-  //     {props.city} {props.state} {props.postal_code}
-  return <>Map</>;
+import { Map, Marker } from "pigeon-maps";
+import { osm } from "pigeon-maps/providers";
+
+const MyMap = (props) => {
+  props = props.props;
+  const coordinate = {
+    lat: parseInt(props.latitude) || 0,
+    long: parseInt(props.longitude) || 0,
+  };
+  return (
+    <Map
+      provider={osm}
+      height={300}
+      defaultCenter={[coordinate.lat, coordinate.long]}
+      defaultZoom={11}
+    >
+      <Marker width={25} anchor={[coordinate.lat, coordinate.long]} />
+    </Map>
+  );
 };
 
-export default Map;
+export default MyMap;

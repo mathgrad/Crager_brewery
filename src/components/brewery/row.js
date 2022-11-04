@@ -1,5 +1,8 @@
+import Map from "./map";
+
 const BreweryRow = (props) => {
   props = props.props;
+
   return (
     <>
       <div className="row">
@@ -10,8 +13,17 @@ const BreweryRow = (props) => {
           {props.address_1 && props.address_2 + " "}
           {props.city} {props.state} {props.postal_code}
         </div>
-        <div>{props.website_url}</div>
+        {props.website_url !== null ? (
+          <div>
+            <a href={props.website_url} target={"_blank"} rel={"noreferrer"}>
+              {props.name}'s website
+            </a>
+          </div>
+        ) : (
+          <div>No Website Available</div>
+        )}
       </div>
+      <Map props={props} />
     </>
   );
 };
