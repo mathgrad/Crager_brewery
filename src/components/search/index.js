@@ -1,15 +1,14 @@
+import { searchCity } from "../../redux/sliceBrewery";
+import { useDispatch } from "react-redux";
+
 const Search = () => {
+  const dispatch = useDispatch();
   const search = (event) => {
     let phrase = event.target.value;
     if (phrase.length <= 2) return;
-    fetch("https://api.openbrewerydb.org/breweries?by_city=" + phrase)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-      });
+    dispatch(searchCity(phrase));
   };
+
   return (
     <div className="breweries">
       <div className="search">

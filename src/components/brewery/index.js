@@ -1,20 +1,9 @@
 import Row from "./row";
-import { useEffect, useState } from "react";
+import { breweryList } from "../../redux/sliceBrewery";
+import { useSelector } from "react-redux";
 
 const BreweryBase = () => {
-  // const breweries = useSelector((state) => state.breweries);
-  // const [active, setActive] = useState(false);
-  const [breweries, setBreweries] = useState([]);
-  useEffect(() => {}, [breweries]);
-  if (breweries.length == 0) {
-    fetch("https://api.openbrewerydb.org/breweries")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setBreweries(data);
-      });
-  }
+  const breweries = useSelector(breweryList);
   return (
     <div className="breweries">
       {breweries.length > 0 && (
@@ -26,12 +15,11 @@ const BreweryBase = () => {
         </div>
       )}
       {breweries.length > 0 &&
-        breweries.map((brewery, index) => <Row props={brewery} />)}
+        breweries.map((brewery, index) => (
+          <Row key={index.toString()} props={brewery} />
+        ))}
     </div>
   );
 };
-/* {Object.values(breweries).length > 0 &&
-        Object.values(breweries).forEach((brewery) =>
-          (<Row props={brewery} />)(active && <Map props={brewery} />)
-        )} */
+
 export default BreweryBase;
