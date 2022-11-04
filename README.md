@@ -20,4 +20,10 @@ The maps not correctly displaying objects seems to be tied to the coordinates =>
 
 Spent time learning Socket.IO due to a misunderstanding for one of the stretch goals.  Thought I needed to establish a membrane around the application.  This is fairly standard practice with defense in depth and ensuring proper delegation of tasks.  Typically used AWS API Gateway with serverless, but thought I would have time to host both and figure out the implementation.  Did not have time.
 
+Naming convention:
+I have used multiple, and keep iterating to try something new.  In this case, each component has an "Index" element as the base for the component.  For specific redux parts, it was named "redux-part" + "component" as to keep things in alphabetical order and for ease of access.  For example, brewery component interacts with the sliceBrewery.  
+Thought the search component would behave differently and have it's own set of redux afflicated stuff due to old understanding, so kept it sparate at first, then kept it separate as it is a different component.  If more search functions are added then, the search bar will be made agnostic to the components and instead look at what is currently active.
+
+Some code debt remains with refactoring and enhancing, but do not have the time for it.
+
 Requested an extension due to illness.
