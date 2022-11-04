@@ -1,5 +1,3 @@
-import Map from "./map";
-
 const BreweryRow = (props) => {
   props = props.props;
   return (
@@ -17,7 +15,5 @@ const BreweryRow = (props) => {
     </>
   );
 };
-
-const select = (event) => {};
 
 export default BreweryRow;

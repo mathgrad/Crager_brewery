@@ -4,7 +4,7 @@ const Map = (props) => {
   // {props.street} {props.address_2 + " "}
   //     {props.address_2 + " "}
   //     {props.city} {props.state} {props.postal_code}
-  return <></>;
+  return <>Map</>;
 };
 
 export default Map;
